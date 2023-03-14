@@ -10,7 +10,7 @@
 * **A game has at least one platform**
 * A platform has an identifier
 * A platform has a name
-* ** **A game has at least one getting condition
+* **A game has at least one getting condition**
 * A getting condition has an identifier
 * A getting condition has a name
 
