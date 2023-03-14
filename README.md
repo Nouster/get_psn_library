@@ -14,6 +14,11 @@
 * A getting condition has an identifier
 * A getting condition has a name
 
+### Data dictionary
+| **Mnemonic Code** | **Description** | **Type** | **Size** | **Comment** |
+|-------------------|-----------------|----------|----------|-------------|
+
+
 
 
 
