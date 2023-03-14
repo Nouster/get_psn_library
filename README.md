@@ -1,6 +1,6 @@
 # get_psn_library
 
-##Data Conceptual Model
+## Data Conceptual Model
 ### Management rules 
 * A game has an identifier, a name, an image, a description, a release date, and a start date for gamers
 * A game has a completion percentage
