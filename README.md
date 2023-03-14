@@ -17,8 +17,11 @@
 ### Data dictionary
 | **Mnemonic Code** | **Description** | **Type** | **Size** | **Comment** |
 |-------------------|-----------------|----------|----------|-------------|
-|id_game            | Game identifier | N        | 1O       | Unsigned    |
-|name_game          | Name for a game | AN       | 50       |             |
+| id_game            | Game identifier | N        | 1O       | Unsigned    |
+| name_game          | Name for a game | AN       | 50       |             |
+| picture_game       | Picture for game| AN       | 50       |             |
+| description_game   | game description| AN       | 1000     |             |
+| release_game       | release date for a game| DATE | 10    | French format|
 
 
 
