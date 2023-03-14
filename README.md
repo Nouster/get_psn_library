@@ -17,6 +17,7 @@
 ### Data dictionary
 | **Mnemonic Code** | **Description** | **Type** | **Size** | **Comment** |
 |-------------------|-----------------|----------|----------|-------------|
+|id_game            | Game identifier | N        | 1O       |             |
 
 
 
