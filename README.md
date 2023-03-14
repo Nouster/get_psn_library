@@ -33,6 +33,12 @@
 
 
 
+### Functional depedence
+
+* id_game ? name_game 
+
+
+
 
 
 
