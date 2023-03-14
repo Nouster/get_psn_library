@@ -15,13 +15,21 @@
 * A getting condition has a name
 
 ### Data dictionary
-| **Mnemonic Code** | **Description** | **Type** | **Size** | **Comment** |
-|-------------------|-----------------|----------|----------|-------------|
-| id_game            | Game identifier | N        | 1O       | Unsigned    |
-| name_game          | Name for a game | AN       | 50       |             |
-| picture_game       | Picture for game| AN       | 50       |             |
-| description_game   | game description| AN       | 1000     |             |
-| release_game       | release date for a game| DATE | 10    | French format|
+
+| **Mnemonic Code** | **Description**            | **Type** | **Size**   | **Comment**   |
+|--------------------|---------------------------|----------|------------|---------------|
+| id_game            | Game identifier           | N        | 10         | *Unsigned*    |
+| name_game          | Name for a game           | N        | 50         |               |
+| picture_game       | Picture for game          | AN       | 50         |               |
+| description_game   | game description          | AN       | 1000       |               |
+| release_game       | release date for a game   | DATE     | 10         | *Fr format*   |
+| start_date_game    | Start date for a user     | DATE     | 10         | *Fr format*   |
+| id_category        | Category identifier       | N        | 10         | *Unsigned*    | 
+| name_category      | Name for a category       | AN       | 10         |               |
+| id_platform        | Platform identifier       | N        | 10         | *Unsigned*    |
+| name_platform      | Name for a platform       | AN       | 10         |               |
+| id_getting         | Identifier for getting    | N        | 10         | *Unsigned*    |
+| name_getting       | Name for get condition    | AN       | 10         | *How I got*   |
 
 
 
