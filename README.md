@@ -41,6 +41,10 @@
 * <ins>id_getting</ins> ? name_getting
 
 
+### Final DCM
+
+![DCM_draw](assets/img/mcd.png)
+
 
 
 
