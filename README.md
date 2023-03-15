@@ -43,7 +43,7 @@
 
 ### Final DCM
 
-![DCM_draw](assets/img/mcd.png)
+![DCM_draw](assets/img/dcm.png)
 
 
 ## Logical data model
@@ -51,10 +51,9 @@
 
 game (id_game, name_game, picture_game, description_game, release_game, start_date_game)
 L_game_category(id_game
-categories (id_c, name_c)
-utilisateurs (id_u, name_u, firstname_u, email_u, address_u, mdp_u, compteur_u, #id_v)
-jeux (id_j, name_j, img_j, rules_j, loc_j, caution_j, #id_t, #id_c, #id_u, #id_j_p)
-villes (id_v, name_v)
+
+
+
 
 
 
