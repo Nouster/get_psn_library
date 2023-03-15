@@ -46,6 +46,9 @@
 ![DCM_draw](assets/img/mcd.png)
 
 
+## Logical data model
+
+
 
 
 
