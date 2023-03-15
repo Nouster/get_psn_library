@@ -35,7 +35,8 @@
 
 ### Functional depedence
 
-* id_game ? name_game 
+* <ins>id_game</ins> ? name_game, picture_game, description_game, release_game, start_date_game
+* 
 
 
 
