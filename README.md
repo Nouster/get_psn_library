@@ -37,7 +37,7 @@
 
 * <ins>id_game</ins> ? name_game, picture_game, description_game, release_game, start_date_game
 * <ins>id_category</ins> ? name_category
-* <ins>id_platform</ins> ?name_platform
+* <ins>id_platform</ins> ? name_platform
 * <ins>id_getting</ins> ? name_getting
 
 
