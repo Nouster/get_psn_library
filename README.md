@@ -4,15 +4,13 @@
 ### Management rules 
 * A game has an identifier, a name, an image, a description, a release date, and a start date for gamers
 * A game has a completion percentage
+* A game has a way to get it
 * **A game has at least one category**
 * A category has an identifier
 * A category has a name
 * **A game has at least one platform**
 * A platform has an identifier
 * A platform has a name
-* **A game has at least one getting condition**
-* A getting condition has an identifier
-* A getting condition has a name
 
 ### Data dictionary
 
@@ -24,7 +22,7 @@
 | description_game   | game description          | AN       | 1000       |               |
 | release_game       | release date for a game   | DATE     | 10         | *Fr format*   |
 | start_date_game    | Start date for a user     | DATE     | 10         | *Fr format*   |
-| getting_game       | name for how did you get  | N        | 2          | *Boolean*     |
+| getting_game       | name for how did you get  | N        | 2          | *Boolean ?*     |
 | id_category        | Category identifier       | N        | 10         | *Unsigned*    | 
 | name_category      | Name for a category       | AN       | 10         |               |
 | id_platform        | Platform identifier       | N        | 10         | *Unsigned*    |
