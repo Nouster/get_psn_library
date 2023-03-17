@@ -49,8 +49,7 @@
 ## Logical data model
 
 
-game (id_game, name_game, picture_game, description_game, release_game, start_date_game)
-L_game_category(id_game
+![DCM_draw](assets/img/ldm.png)
 
 
 
