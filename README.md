@@ -24,22 +24,19 @@
 | description_game   | game description          | AN       | 1000       |               |
 | release_game       | release date for a game   | DATE     | 10         | *Fr format*   |
 | start_date_game    | Start date for a user     | DATE     | 10         | *Fr format*   |
+| getting_game       | name for how did you get  | N        | 2          | *Boolean*     |
 | id_category        | Category identifier       | N        | 10         | *Unsigned*    | 
 | name_category      | Name for a category       | AN       | 10         |               |
 | id_platform        | Platform identifier       | N        | 10         | *Unsigned*    |
 | name_platform      | Name for a platform       | AN       | 10         |               |
-| id_getting         | Identifier for getting    | N        | 10         | *Unsigned*    |
-| name_getting       | Name for get condition    | AN       | 10         | *How I got*   |
 
 
 
 ### Functional depedencies
 
-* <ins>id_game</ins> ? name_game, picture_game, description_game, release_game, start_date_game
+* <ins>id_game</ins> ? name_game, picture_game, description_game, release_game, start_date_game, getting_game
 * <ins>id_category</ins> ? name_category
 * <ins>id_platform</ins> ? name_platform
-* <ins>id_getting</ins> ? name_getting
-
 
 ### Final DCM
 
