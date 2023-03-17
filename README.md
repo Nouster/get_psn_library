@@ -46,6 +46,10 @@
 
 ![LMD_draw](assets/img/ldm.png)
 
+## Physical data model
+
+![LMD_draw](assets/img/pdm.png)
+
 
 
 
