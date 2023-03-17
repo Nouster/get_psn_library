@@ -44,7 +44,7 @@
 ## Logical data model
 
 
-![DCM_draw](assets/img/ldm.png)
+![LMD_draw](assets/img/ldm.png)
 
 
 
