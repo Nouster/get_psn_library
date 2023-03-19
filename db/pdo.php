@@ -1,5 +1,4 @@
 <?php
-// Chargement de mes paramètres de configuration
 $dbConfig = parse_ini_file(__DIR__ . '/../config/db.ini');
 [
     'DB_HOST' => $host,
@@ -10,7 +9,6 @@ $dbConfig = parse_ini_file(__DIR__ . '/../config/db.ini');
     'DB_PASSWORD' => $password
 ] = $dbConfig;
 
-// DSN : Data Source Name
 $dsn = "mysql:host=$host;port=$port;dbname=$dbName;charset=$dbCharset";
 $options = [PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC];
 

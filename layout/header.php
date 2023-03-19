@@ -1,3 +1,4 @@
+<? require_once __DIR__.'/../db/pdo.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
