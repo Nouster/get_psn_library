@@ -1,2 +1,4 @@
 .DS_Store
 config/db.ini
+vendor
+.env.local
