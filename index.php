@@ -1,6 +1,6 @@
 <?php
 
-use Dotenv\Dotenv;
+use Symfony\Component\Dotenv\Dotenv;
 use Tustin\PlayStation\Client;
 
 require_once 'vendor/autoload.php';
@@ -28,19 +28,46 @@ require_once 'classes/Game.php';
 // ]);
 
 
+
 $dotenv = new Dotenv();
 $dotenv->loadEnv(__DIR__ . '/.env');
+var_dump($_SERVER);
 
 $client = new Client();
-$client->loginWithNpsso('psn_token');
+$client->loginWithNpsso($_SERVER['PSN_TOKEN']);
 
 
 $refreshToken = $client->getRefreshToken()->getToken(); // Save this code somewhere (database, file, cache) and use this for future logins
 
+// To get my psn profil 
+$me = $client->users()->me();
 
+$stmt = $pdo->prepare("INSERT INTO game VALUES (?,?,?,?,?,?,?);");
+$stmtCheckDuplicate = $pdo->prepare("SELECT name_game FROM game WHERE name_game = ?;");
 
+foreach ($me->gameList() as $game) {
+    $game->name();
+    var_dump($game);
+    
+    $stmtCheckDuplicate->execute([$game->name()]);
+    $result = $stmtCheckDuplicate->fetchColumn();
+    
+    if (!$result) {
+        $stmt->execute([
+            null,
+            $game->name(),
+            $game->imageUrl(),
+            null,
+            null,
+            date("Y-m-d", strtotime($game->firstPlayedDateTime())),
+            $game->service()
+        ]);
+    }
+}
 ?>
 
 
-
 <?php require_once 'layout/footer.php';?>
+
+
+

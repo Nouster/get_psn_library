@@ -1,7 +1,7 @@
 <?php
 
 class Game {
-    private int $id;
+    private ?int $id = null;
     private string $name;
     private string $picture;
     private string $description;
@@ -9,7 +9,7 @@ class Game {
     private DateTime $startGame;
     private bool $getting;
 
-    public function __construct(int $id, string $name, string $picture, string $description, DateTime $releaseGame, DateTime $startGame, bool $getting) {
+    public function __construct(string $name, string $picture, string $description, DateTime $releaseGame, DateTime $startGame, bool $getting, int $id = null) {
         $this->id = $id;
         $this->name = $name;
         $this->picture = $picture;
