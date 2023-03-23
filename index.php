@@ -6,32 +6,10 @@ use Tustin\PlayStation\Client;
 require_once 'vendor/autoload.php';
 require_once 'layout/header.php'; 
 require_once 'db/pdo.php';
-require_once 'classes/Game.php';
-// $stmt = $pdo->query("INSERT INTO test VALUES (1, 'mohamed');");
-// $pdo->query("CREATE TABLE test(id int, name VARCHAR(50));");
-// $pdo->query("INSERT INTO test VALUES (1, 'mohamed');");
-
-// $stmt = $pdo->prepare("SELECT * FROM test;");
-// $stmt->execute();
-// $date = new DateTime();
-// $game = new Game(2, "Fifa 22", "assets/img/fifa_22.jpeg", "Un jeu de foot très populaire", $date, $date, true);
-
-// $stmt = $pdo->prepare("INSERT INTO game VALUES (?,?,?,?,?,?,?)");
-// $stmt->execute([
-//     $game->getId(),
-//     $game->getName(),
-//     $game->getPicture(),
-//     $game->getDescription(),
-//     $game->getReleaseGame()->format('Y-m-d'),
-//     $game->getStartGame()->format('Y-m-d'),
-//     $game->getIsGetting()
-// ]);
-
 
 
 $dotenv = new Dotenv();
 $dotenv->loadEnv(__DIR__ . '/.env');
-var_dump($_SERVER);
 
 $client = new Client();
 $client->loginWithNpsso($_SERVER['PSN_TOKEN']);
@@ -44,29 +22,71 @@ $me = $client->users()->me();
 
 $stmt = $pdo->prepare("INSERT INTO game VALUES (?,?,?,?,?,?,?);");
 $stmtCheckDuplicate = $pdo->prepare("SELECT name_game FROM game WHERE name_game = ?;");
+$stmtPlatform = $pdo->prepare("INSERT INTO platform VALUES (?,?)");
+$stmtCategory = $pdo->prepare("INSERT INTO category VALUES (?,?)");
+$stmtDisplay = $pdo->prepare("SELECT * FROM game");
+
+
+
 
 foreach ($me->gameList() as $game) {
-    $game->name();
-    var_dump($game);
-    
+
+    $firstPlayed = new DateTime($game->firstPlayedDateTime());
     $stmtCheckDuplicate->execute([$game->name()]);
-    $result = $stmtCheckDuplicate->fetchColumn();
-    
-    if (!$result) {
+    $results = $stmtCheckDuplicate->fetchColumn();
+    if (!$results) {
         $stmt->execute([
             null,
             $game->name(),
             $game->imageUrl(),
             null,
             null,
-            date("Y-m-d", strtotime($game->firstPlayedDateTime())),
+            $firstPlayed->format('Y-m-d'),
             $game->service()
         ]);
     }
 }
+
+// foreach ($me->gameList() as $game) {
+//     try {
+//         $stmtPlatform->execute([
+//             null,
+//             $game->category()
+//         ]);
+//     } catch (Exception $e) {
+//         header("location: index.php");   
+//     }
+// }
+
+
+$stmtDisplay->execute();
+$results = $stmtDisplay->fetchAll();
 ?>
 
+<form class="row justify-content-center gap-3 my-5" action="result.php" method="GET">
+    <input class="col-md-6 rounded-3" placeholder="🔍 Search" type="text" name="q" value="<?php echo $_GET['q'] ?? ''; ?>">
+    <input class="col-md-2 rounded-3" type="submit" value="Submit">
+</form>
 
+<div class="container">
+    <div class="row justify-content-center gap-3">
+        <?php foreach ($results as $game) { ?>
+            <div class="col-md-3 text-center">
+                <h2 class="h6 bg-dark text-light mb-0 rounded-top-3 py-2"><?php echo $game['name_game']; ?></h2>
+                <img class="img-fluid rounded-bottom-3" src="<?php echo $game['picture_game']; ?>">
+            </div>
+        <?php } ?>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+?>
 <?php require_once 'layout/footer.php';?>
 
 

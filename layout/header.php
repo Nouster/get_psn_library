@@ -9,3 +9,5 @@
     <title>Document</title>
 </head>
 <body>
+
+<?php require_once 'navbar.php';
