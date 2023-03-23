@@ -2,5 +2,11 @@
     "require": {
         "tustin/psn-php": "^4.0",
         "symfony/dotenv": "^6.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Application\\": "module/Application/src/"
+        }
     }
 }
+

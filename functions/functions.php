@@ -6,7 +6,8 @@ function redirect(string $location): void
     exit;
 }
 
-function displayResult($results){
+function displayResult(array $results): void
+{
     $displayText = ' résultat trouvé';
     if(count($results)>1){
         $displayText = ' résultats trouvés';
@@ -14,4 +15,9 @@ function displayResult($results){
     }else {
         echo count($results) . $displayText;
     }
+}
+
+function excerpt(string $text, int $limit): string
+{
+    return substr($text, 0, $limit);
 }
