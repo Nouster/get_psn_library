@@ -2,11 +2,13 @@
 require_once 'layout/header.php';
 ?>
 
-<form action="login_process.php" method="POST">
-    <input type="text" name="pseudo">
-    <input type="password" name="pass">
-    <input type="submit" value="Login">
-</form>
+<section class="container my-5">
+    <form class="row flex-column justify-content-center align-items-center gap-3" action="login_process.php" method="POST">
+        <input class="col-md-5 rounded-3" type="text" name="pseudo" placeholder="Pseudo" required>
+        <input class="col-md-5 rounded-3" type="password" name="pass" placeholder="Password" required>
+        <input class="col-md-2 rounded-3" type="submit" value="Login">
+    </form>
+</section>
 
 
 

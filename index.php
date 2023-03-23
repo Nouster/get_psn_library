@@ -65,6 +65,8 @@ $stmtDisplay->execute();
 $results = $stmtDisplay->fetchAll();
 ?>
 
+<h1 id="app" class="col-md-12 text-center text-black display-5 py-5"></h1>
+
 <section class="container">
     <form class="row justify-content-center gap-3 my-5" action="results.php" method="GET">
         <input class="col-md-5 rounded-3" placeholder="🔍 Search" type="text" name="q" value="<?php echo $_GET['q'] ?? ''; ?>">
