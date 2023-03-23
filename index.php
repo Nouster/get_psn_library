@@ -63,7 +63,7 @@ $stmtDisplay->execute();
 $results = $stmtDisplay->fetchAll();
 ?>
 
-<form class="row justify-content-center gap-3 my-5" action="result.php" method="GET">
+<form class="row justify-content-center gap-3 my-5" action="results.php" method="GET">
     <input class="col-md-6 rounded-3" placeholder="🔍 Search" type="text" name="q" value="<?php echo $_GET['q'] ?? ''; ?>">
     <input class="col-md-2 rounded-3" type="submit" value="Submit">
 </form>
