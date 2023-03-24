@@ -21,3 +21,10 @@ function excerpt(string $text, int $limit): string
 {
     return substr($text, 0, $limit);
 }
+
+function displayError() :void
+{
+if(array_key_exists('error', $_GET)){
+    echo '<div class="alert alert-danger" role="alert">'. Authentification_Error::getErrorMessage(intval($_GET['error'])).'</div>';
+}
+}
