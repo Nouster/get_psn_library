@@ -20,11 +20,6 @@ $client->loginWithNpsso($_SERVER['PSN_TOKEN']);
 
 $refreshToken = $client->getRefreshToken()->getToken(); // Save this code somewhere (database, file, cache) and use this for future logins
 
-
-
-
-var_dump($_SESSION);
-var_dump($_POST);
 // To get my psn profil 
 $me = $client->users()->me();
 
