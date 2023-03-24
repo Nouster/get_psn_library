@@ -1,5 +1,10 @@
 <?php
 require_once 'layout/header.php';
+require_once 'classes/Session.php';
+
+$session = new Session();
+$session->logIn();
+
 ?>
 
 <section class="container my-5">

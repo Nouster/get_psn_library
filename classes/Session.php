@@ -1,9 +1,15 @@
 <?php 
 class Session {
 
-    public function __construct()
-    {
-        session_start();
+
+    public function logOut()    
+    {   
+        session_destroy();
+        redirect('login.php');
     }
 
+    public function logIn(){
+        session_start();
+    }
 }
+

@@ -20,7 +20,7 @@ let customNodeCreator = function(character) {
 }
 
 let typewriter = new Typewriter(app, {
-  loop: false,
+  loop: true,
   delay: 75,
   onCreateTextNode: customNodeCreator,
 });

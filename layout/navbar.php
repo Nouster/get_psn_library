@@ -29,9 +29,9 @@
     <a class="nav-link" href="#">Pricing</a>
         </li>
     </ul>
-    <span class="navbar-text">
-        Navbar text with an inline element
-    </span>
+    <ul class="">
+        <a href="../logout.php">Logout</a>
+    </ul>
     </div>
   </div>
 </nav>
