@@ -1,7 +1,11 @@
 <?php
+
+use App\Session;
+
 require_once 'functions/functions.php';
 require_once 'layout/header.php';
 
-session_start();
+$session = new Session();
+
 session_destroy();
 redirect('login.php');

@@ -1,16 +1,13 @@
 <?php
+
 use Symfony\Component\Dotenv\Dotenv;
 use Tustin\PlayStation\Client;
 
-require_once 'vendor/autoload.php';
+
 require_once 'layout/header.php'; 
 require_once 'db/pdo.php';
 require_once 'functions/functions.php';
-require_once 'classes/Session.php';
 
-
-$session = new Session();
-$session->logIn();
 
 $dotenv = new Dotenv();
 $dotenv->loadEnv(__DIR__ . '/.env');
@@ -51,16 +48,18 @@ foreach ($me->gameList() as $game) {
     }
 }
 
-// foreach ($me->gameList() as $game) {
-//     try {
-//         $stmtPlatform->execute([
-//             null,
-//             $game->category()
-//         ]);
-//     } catch (Exception $e) {
-//         redirect('index.php');
-//         continue ;
-//     }
+// $stmtCheckDuplicatePlatform = $pdo->prepare("SELECT name_platform FROM platform WHERE name_platform = ?, ?;");
+
+
+// foreach ($me->gameList() as $game){
+//     $stmtCheckDuplicatePlatform->execute([$game->category()]);
+//     $results = $stmtCheckDuplicatePlatform->fetchColumn();
+//     if (!$results) {
+//     $stmtPlatform->execute([
+//         null,
+//         $game->category()
+//     ]);
+// }
 // }
 
 

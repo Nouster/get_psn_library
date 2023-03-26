@@ -1,4 +1,6 @@
 <?php
+namespace App;
+
 class Authentification_Error
 {
     public const PASS_PSEUDO_INVALID = 1;
@@ -21,7 +23,7 @@ class Authentification_Error
             case self::IP_BLOCKED:
                 return "Your IP address has been blocked. Please contact support.";
             default:
-                return "ERROR";
+                return "An error occurred. Please try again later.";
         }
     }
 }
