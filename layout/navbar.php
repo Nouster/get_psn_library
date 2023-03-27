@@ -37,7 +37,7 @@ $session->logIn();
         <li class="nav-item">
           <?php
           echo '<a class="nav-link text-bg-dark px-3 py-2 rounded-3" ';
-          if ($_SESSION['isConnected'] === true) {
+          if (!empty($_SESSION)) {
             echo "href='../logout.php'>Logout</a>";
           } else {
             echo "href='../login.php'>Login</a>";
