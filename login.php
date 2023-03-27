@@ -17,6 +17,14 @@ require_once 'functions/functions.php';
     </form>
 </section>
 
+<section class="container">
+    <form class="d-flex justify-content-center my-5 gap-3" action="signUp_process.php" method="post">
+        <input type="text" name="pseudo">
+        <input type="password" name="pass">
+        <input type="submit" value="Subscription">
+    </form>
+</section>
+
 
 
 

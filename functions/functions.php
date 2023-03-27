@@ -1,5 +1,7 @@
 <?php
 
+use App\Authentification_Error;
+
 function redirect(string $location): void
 {
     header('Location: ' . $location);
