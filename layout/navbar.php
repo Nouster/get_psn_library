@@ -4,7 +4,6 @@ require_once 'vendor/autoload.php';
 use App\Session;
 
 $session = new Session;
-$session->logIn();
 
 ?>
 <div class="container-fluid bg-dark d-flex justify-content-end p-3">

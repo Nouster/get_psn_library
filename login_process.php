@@ -8,7 +8,6 @@ require_once 'db/pdo.php';
 require_once 'functions/functions.php';
 require_once 'vendor/autoload.php';
 $session = new Session();
-$session->logIn();
 
 $pseudo = $_POST['pseudo'];
 $pass = $_POST['pass'];

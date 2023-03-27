@@ -4,6 +4,10 @@ namespace App;
 
 class Session {
 
+    public function __construct()
+    {
+        session_start();
+    }
 
     public function logOut()    
     {   
@@ -11,8 +15,5 @@ class Session {
         redirect('login.php');
     }
 
-    public function logIn(){
-        session_start();
-    }
 }
 
