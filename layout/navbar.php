@@ -28,10 +28,17 @@ $session = new Session;
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link active" aria-current="page" href="index.php">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="wishList.php">Wish List</a>
+        </li>
+      </ul>
+      <ul class="d-flex justify-content-end m-0 list-unstyled gap-3">
+        <li class="nav-item">
+          <?php if (!empty($_SESSION)) {
+            echo '<a href="wishListForm.php"><button type="button" class="btn btn-dark">Add new wish</button></a>';
+          } ?>
         </li>
         <li class="nav-item">
           <?php
@@ -42,6 +49,7 @@ $session = new Session;
             echo "href='../login.php'>Login</a>";
           }
           ?>
+
         </li>
       </ul>
     </div>
