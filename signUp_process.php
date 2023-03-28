@@ -1,5 +1,6 @@
 <?php
 
+use App\Authentification_Error;
 use App\Session;
 
 require_once 'db/pdo.php';
@@ -13,8 +14,14 @@ $pass = $_POST['pass'];
 $hashedPass = password_hash($pass, PASSWORD_DEFAULT);
 
 $stmt = $pdo->prepare('INSERT INTO users(pseudo_users, pass_users) VALUES (:pseudo, :pass)');
-$result = $stmt->execute([
-    ':pseudo' => $pseudo, 
-    ':pass' => $hashedPass]);
 
-redirect('login.php');
+try {
+    $result = $stmt->execute([
+        ':pseudo' => $pseudo,
+        ':pass' => $hashedPass
+    ]);
+    redirect('index.php');
+} catch (Exception $e) {
+    redirect('login.php?error=' . Authentification_Error::PSEUDO_ALREADY_USED);
+}
+

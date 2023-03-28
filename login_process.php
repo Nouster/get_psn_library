@@ -36,11 +36,9 @@ $userFound = $stmt->fetch();
 var_dump($userFound);
 
 
-if ($userFound && password_verify($pass, $userFound['pass_users'])) 
-{
+if ($userFound && password_verify($pass, $userFound['pass_users'])) {
     $_SESSION['isConnected'] = true;
     redirect('index.php');
-}else
-{
-    redirect('login.php?error='. Authentification_Error::PASS_PSEUDO_INVALID);
+} else {
+    redirect('login.php?error=' . Authentification_Error::PASS_PSEUDO_INVALID);
 }
