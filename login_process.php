@@ -13,14 +13,6 @@ $pseudo = $_POST['pseudo'];
 $pass = $_POST['pass'];
 $hashedPassword = password_hash($pass, PASSWORD_DEFAULT);
 
-// if (empty($_POST) || !isset($pseudo) || !isset($pass)) 
-// {
-//     $errorCode = Authentification_Error::MISSING_CREDENTIALS;
-//     $errorMessage = Authentification_Error::getErrorMessage($errorCode);
-//     redirect('login.php?error='. $errorCode);
-//     exit();
-
-//     }
 
 if (empty($_POST['pseudo'] || empty($_POST['pass']))) {
     redirect('index.php?error=' . Authentification_Error::MISSING_CREDENTIALS);

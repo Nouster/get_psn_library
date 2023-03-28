@@ -31,7 +31,7 @@ $session = new Session;
           <a class="nav-link active" aria-current="page" href="#">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Features</a>
+          <a class="nav-link" href="wishList.php">Wish List</a>
         </li>
         <li class="nav-item">
           <?php

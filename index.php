@@ -8,6 +8,8 @@ require_once 'layout/header.php';
 require_once 'db/pdo.php';
 require_once 'functions/functions.php';
 
+$session->unknownUser();
+
 
 $dotenv = new Dotenv();
 $dotenv->loadEnv(__DIR__ . '/.env');
@@ -48,6 +50,8 @@ foreach ($me->gameList() as $game) {
     }
 }
 
+
+
 // $stmtCheckDuplicatePlatform = $pdo->prepare("SELECT name_platform FROM platform WHERE name_platform = ?, ?;");
 
 
@@ -87,7 +91,7 @@ $results = $stmtDisplay->fetchAll();
         <?php foreach ($results as $game) { ?>
             <div class="col-md-2 text-center">
                 <h2 class="h6 bg-dark text-light mb-0 rounded-top-3 py-2"><?php echo excerpt($game['name_game'] ,10); ?></h2>
-                <img class="img-fluid rounded-bottom-3" src="<?php echo $game['picture_game']; ?>">
+                <a href="gameInfo.php?id=<?php echo $game['id_game']?>"><img class="img-fluid rounded-bottom-3" src="<?php echo $game['picture_game']; ?>"></a>
             </div>
         <?php } ?>
     </div>

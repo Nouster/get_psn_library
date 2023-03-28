@@ -15,5 +15,12 @@ class Session {
         redirect('login.php');
     }
 
+    public function unknownUser() :void{
+        if(empty($_SESSION)){
+            redirect('login.php');
+            exit;
+        }
+    }
+
 }
 
