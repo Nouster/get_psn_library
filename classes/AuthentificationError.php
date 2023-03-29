@@ -1,14 +1,13 @@
 <?php
 namespace App;
 
-class Authentification_Error
+class AuthentificationError
 {
     public const PASS_PSEUDO_INVALID = 1;
     public const MISSING_CREDENTIALS = 2;
     public const ACCOUNT_LOCKED = 3;
     public const TOO_MANY_ATTEMPTS = 4;
     public const IP_BLOCKED = 5;
-    public const PSEUDO_ALREADY_USED = 6;
 
     public static function getErrorMessage(int $code): string
     {
@@ -23,8 +22,6 @@ class Authentification_Error
                 return "Too many failed login attempts. Please try again later.";
             case self::IP_BLOCKED:
                 return "Your IP address has been blocked. Please contact support.";
-            case self::PSEUDO_ALREADY_USED:
-                return "Pseudo has already been used";
             default:
                 return "An error occurred. Please try again later.";
         }

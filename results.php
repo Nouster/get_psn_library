@@ -6,6 +6,7 @@ require_once 'functions/functions.php';
 
 $search = strtolower($_GET['q']);
 
+
 if (empty($_GET['q'])) {
 
     redirect('index.php');

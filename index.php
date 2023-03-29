@@ -1,73 +1,10 @@
 <?php
 
-use Symfony\Component\Dotenv\Dotenv;
-use Tustin\PlayStation\Client;
-
-
 require_once 'layout/header.php'; 
 require_once 'db/pdo.php';
 require_once 'functions/functions.php';
 
-$session->unknownUser();
-
-
-$dotenv = new Dotenv();
-$dotenv->loadEnv(__DIR__ . '/.env');
-
-$client = new Client();
-$client->loginWithNpsso($_SERVER['PSN_TOKEN']);
-
-$refreshToken = $client->getRefreshToken()->getToken(); // Save this code somewhere (database, file, cache) and use this for future logins
-
-// To get my psn profil 
-$me = $client->users()->me();
-
-$stmt = $pdo->prepare("INSERT INTO game VALUES (?,?,?,?,?,?,?,?);");
-$stmtCheckDuplicate = $pdo->prepare("SELECT name_game FROM game WHERE name_game = ?;");
-$stmtPlatform = $pdo->prepare("INSERT INTO platform VALUES (?,?)");
-$stmtCategory = $pdo->prepare("INSERT INTO category VALUES (?,?)");
-$stmtDisplay = $pdo->prepare("SELECT * FROM game");
-$stmtInsertCategory = $pdo->prepare("INSERT INTO category VALUES (?,?)");
-
-
-
-foreach ($me->gameList() as $game) {
-
-    $firstPlayed = new DateTime($game->firstPlayedDateTime());
-    $stmtCheckDuplicate->execute([$game->name()]);
-    $results = $stmtCheckDuplicate->fetchColumn();
-    if (!$results) {
-        $stmt->execute([
-            null,
-            $game->name(),
-            $game->imageUrl(),
-            null,
-            null,
-            $firstPlayed->format('Y-m-d'),
-            $game->service(),
-            1  
-        ]);
-    }
-}
-
-
-
-// $stmtCheckDuplicatePlatform = $pdo->prepare("SELECT name_platform FROM platform WHERE name_platform = ?, ?;");
-
-
-// foreach ($me->gameList() as $game){
-//     $stmtCheckDuplicatePlatform->execute([$game->category()]);
-//     $results = $stmtCheckDuplicatePlatform->fetchColumn();
-//     if (!$results) {
-//     $stmtPlatform->execute([
-//         null,
-//         $game->category()
-//     ]);
-// }
-// }
-
-
-$stmtDisplay->execute();
+$stmtDisplay = $pdo->query("SELECT * FROM game;");
 $results = $stmtDisplay->fetchAll();
 ?>
 
@@ -89,7 +26,7 @@ $results = $stmtDisplay->fetchAll();
 <div class="container">
     <div class="row justify-content-center gap-3">
         <?php foreach ($results as $game) { ?>
-            <div class="col-md-2 text-center">
+            <div class="col-md-2 text-center vignette">
                 <h2 class="h6 bg-dark text-light mb-0 rounded-top-3 py-2"><?php echo excerpt($game['name_game'] ,10); ?></h2>
                 <a href="gameInfo.php?id=<?php echo $game['id_game']?>"><img class="img-fluid rounded-bottom-3" src="<?php echo $game['picture_game']; ?>"></a>
             </div>

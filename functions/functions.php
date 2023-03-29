@@ -1,6 +1,6 @@
 <?php
 
-use App\Authentification_Error;
+use App\AuthentificationError;
 
 function redirect(string $location): void
 {
@@ -27,6 +27,6 @@ function excerpt(string $text, int $limit): string
 function displayError() :void
 {
 if(array_key_exists('error', $_GET)){
-    echo '<div class="alert alert-danger" role="alert">'. Authentification_Error::getErrorMessage(intval($_GET['error'])).'</div>';
+    echo '<div class="alert alert-danger" role="alert">'. AuthentificationError::getErrorMessage(intval($_GET['error'])).'</div>';
 }
 }

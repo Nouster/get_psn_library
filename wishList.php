@@ -1,15 +1,15 @@
 <?php
 require_once 'layout/header.php';
 require_once 'db/pdo.php';
-?>
+require_once 'functions/functions.php';
+$session->unknownUser();
 
+?>
 <?php
 $stmt = $pdo->prepare("SELECT * FROM wishlist");
 $stmt->execute();
 
 
-// var_dump($wishList);
-// echo $wishList['title_wishlist'];
 ?>
 <div class="container my-5">
     <div class="row justify-content-center gap-3">
