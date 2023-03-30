@@ -1,8 +1,11 @@
 <?php
 
+
+
 require_once 'layout/header.php'; 
 require_once 'db/pdo.php';
 require_once 'functions/functions.php';
+$session->unknownUser();
 
 $stmtDisplay = $pdo->query("SELECT * FROM game;");
 $results = $stmtDisplay->fetchAll();

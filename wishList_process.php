@@ -6,7 +6,7 @@ $title = $_POST['title'];
 $release = $_POST['release'];
 $description = $_POST['description'];
 $picture = $_FILES['picture'];
-var_dump($_FILES);
+
 
 if (isset($picture)) {
     $file = $_FILES['picture'];
@@ -29,5 +29,5 @@ $result = $stmt->execute([
     $destination
 ]);
 
-var_dump($release);
+
 $description = $_POST['description'];

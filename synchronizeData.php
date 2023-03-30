@@ -6,7 +6,7 @@ require_once 'functions/functions.php';
 use App\Session;
 use Symfony\Component\Dotenv\Dotenv;
 use Tustin\PlayStation\Client;
-$session = new Session;
+$session = new Session();
 $session->unknownUser();
 
 
@@ -20,6 +20,9 @@ $refreshToken = $client->getRefreshToken()->getToken(); // Save this code somewh
 
 // To get my psn profil 
 $me = $client->users()->me();
+
+
+
 
 $stmt = $pdo->prepare("INSERT INTO game VALUES (?,?,?,?,?,?,?,?);");
 $stmtCheckDuplicate = $pdo->prepare("SELECT name_game FROM game WHERE name_game = ?;");
@@ -48,4 +51,4 @@ foreach ($me->gameList() as $game) {
     }
 }
 
-redirect('index.php');
+// redirect('index.php');

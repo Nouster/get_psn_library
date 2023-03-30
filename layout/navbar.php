@@ -26,12 +26,12 @@ $session = new Session;
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarText">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-4">
+        <li class="nav-item navButton rounded-3">
+          <a class="nav-link active px-3 py-2" aria-current="page" href="index.php">Home</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="wishList.php">Wish List</a>
+        <li class="nav-item navButton rounded-3">
+          <a class="nav-link px-3 py-2" href="wishList.php">Wish List</a>
         </li>
       </ul>
       <ul class="d-flex justify-content-end m-0 list-unstyled gap-3">

@@ -1,6 +1,6 @@
 <?php
 
-use App\AuthentificationError;
+use App\RegistrationError;
 use App\Session;
 
 require_once 'db/pdo.php';
@@ -22,6 +22,6 @@ try {
     ]);
     redirect('index.php');
 } catch (Exception $e) {
-    redirect('login.php?error=' . AuthentificationError::PSEUDO_ALREADY_USED);
+    redirect('login.php?error=' . RegistrationError::PSEUDO_ALREADY_USED);
 }
 

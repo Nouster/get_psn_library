@@ -1,5 +1,5 @@
 <?php
-
+namespace App;
 class RegistrationError {
     public const PSEUDO_ALREADY_USED = 6;
 
