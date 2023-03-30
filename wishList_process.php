@@ -33,4 +33,11 @@ $result = $stmt->execute([
 
 $description = $_POST['description'];
 
+
+
 redirect('wishlist.php');
+
+
+
+?>
+

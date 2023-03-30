@@ -9,7 +9,7 @@ $session = new Session;
 <div class="container-fluid bg-dark d-flex justify-content-end p-3">
   <span class="text-light fw-bold">SONY</span>
 </div>
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg bg-body-tertiary border border-3">
   <div class="container-fluid">
     <a class="navbar-brand" href="index.php"><svg aria-hidden="true" focusable="false" class="shared-nav-ps-logo" width="50px" height="50px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 50 50">
         <g>
