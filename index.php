@@ -17,13 +17,13 @@ $results = $stmtDisplay->fetchAll();
 <section class="container">
     <form class="row justify-content-center gap-3 my-5" action="results.php" method="GET">
         <input class="w-50 rounded-3 search form-control" placeholder="🔍 Search" type="text" name="q" value="<?php echo $_GET['q'] ?? ''; ?>">
-        <select class="col-md-2 rounded-3" name= "category" aria-label="Default select example">
-            <option selected>All category</option>
+        <select class="w-25 rounded-3 form-control" name= "category">
+            <option selected>All categories</option>
             <option value="1">RPG</option>
             <option value="2">Action</option>
             <option value="3">Sport</option>
         </select>
-        <input class="col-md-2 rounded-3" type="submit" value="Submit">
+        <button type="submit" class="btn btn-dark col-md-1 rounded-3">Search</button>
     </form>
 </section>
 

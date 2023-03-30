@@ -13,15 +13,7 @@ pictures.forEach((picture) => {
 	};
 });
 
-submitButton.onmouseover = () => {
-	submitButton.style =
-		"transform: scale(1.1); transition: all 0.5s ease-in-out;";
-};
 
-submitButton.onmousseout = () => {
-	submitButton.style =
-		"transform: scale(1.0); transition: all 0.5s ease-in-out;";
-};
 
 let app = document.getElementById("app");
 
