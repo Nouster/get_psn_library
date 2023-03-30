@@ -5,6 +5,7 @@
 require_once 'layout/header.php'; 
 require_once 'db/pdo.php';
 require_once 'functions/functions.php';
+
 $session->unknownUser();
 
 $stmtDisplay = $pdo->query("SELECT * FROM game;");
@@ -15,7 +16,7 @@ $results = $stmtDisplay->fetchAll();
 
 <section class="container">
     <form class="row justify-content-center gap-3 my-5" action="results.php" method="GET">
-        <input class="col-md-5 rounded-3" placeholder="🔍 Search" type="text" name="q" value="<?php echo $_GET['q'] ?? ''; ?>">
+        <input class="w-50 rounded-3 search form-control" placeholder="🔍 Search" type="text" name="q" value="<?php echo $_GET['q'] ?? ''; ?>">
         <select class="col-md-2 rounded-3" name= "category" aria-label="Default select example">
             <option selected>All category</option>
             <option value="1">RPG</option>

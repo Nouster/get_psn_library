@@ -51,4 +51,4 @@ foreach ($me->gameList() as $game) {
     }
 }
 
-// redirect('index.php');
+redirect('index.php');

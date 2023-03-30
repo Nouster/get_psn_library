@@ -30,3 +30,20 @@ if(array_key_exists('error', $_GET)){
     echo '<div class="alert alert-danger" role="alert">'. AuthentificationError::getErrorMessage(intval($_GET['error'])).'</div>';
 }
 }
+
+function displayGameStatus(array $game)
+{
+    $gettingGame = $game['getting_game'];
+    
+    switch($gettingGame) {
+        case str_contains($gettingGame, 'purchased'):
+            echo 'This game has been purchased';
+            break;
+        case str_contains($gettingGame, 'ps_plus'):
+            echo 'I got this game thanks to my PS+ subscription';
+            break;
+        default:
+            echo 'Free application';
+            break;
+    }
+}

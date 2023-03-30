@@ -52,9 +52,9 @@ $session = new Session;
         </li>
         <li>
           <?php
-          if (!empty($_SESSION)) {?>
+          if (!empty($_SESSION)) { ?>
 
-             <a class="nav-link text-bg-dark px-3 py-2 rounded-3" href="../synchronizeData.php">Synchronize</a>
+            <a class="nav-link text-bg-dark px-3 py-2 rounded-3" href="../synchronizeData.php">Synchronize</a>
 
           <?php } ?>
         </li>
