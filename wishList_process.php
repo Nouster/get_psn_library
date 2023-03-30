@@ -1,5 +1,6 @@
 <?php
 require_once 'db/pdo.php';
+require_once 'functions/functions.php';
 
 
 $title = $_POST['title'];
@@ -31,3 +32,5 @@ $result = $stmt->execute([
 
 
 $description = $_POST['description'];
+
+redirect('wishlist.php');
