@@ -2,15 +2,15 @@
 
 use App\Session;
 use App\AuthentificationError;
-
+use App\User;
 
 require_once 'db/pdo.php';
 require_once 'functions/functions.php';
 require_once 'vendor/autoload.php';
 $session = new Session();
-
-$pseudo = $_POST['pseudo'];
-$pass = $_POST['pass'];
+$user = new User($_POST['pseudo'], $_POST['pass']);
+$pseudo = $user->getPseudo();
+$pass = $user->getPass();
 $hashedPassword = password_hash($pass, PASSWORD_DEFAULT);
 
 
