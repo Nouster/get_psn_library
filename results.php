@@ -3,18 +3,18 @@ require_once 'layout/header.php';
 require_once 'db/pdo.php';
 require_once 'functions/functions.php';
 
-
 $search = strtolower($_GET['q']);
-
+$userId = $_SESSION['user_id'];
 
 if (empty($_GET['q'])) {
 
     redirect('index.php');
 }
 
-$stmt = $pdo->prepare("SELECT * FROM game WHERE name_game LIKE '%$search%'");
+$stmt = $pdo->prepare("SELECT * FROM game WHERE name_game LIKE '%$search%' AND id_users = $userId");
 $stmt->execute();
-$results = $stmt->fetchAll(); ?>
+$results = $stmt->fetchAll(); 
+?>
 
 <div class="mt-5 ms-3">
     <a class="text-decoration-none text-dark" href="index.php"> <svg class ="me-3" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">

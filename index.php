@@ -7,8 +7,9 @@ require_once 'db/pdo.php';
 require_once 'functions/functions.php';
 
 $session->unknownUser();
+$userId = $_SESSION['user_id'];
 
-$stmtDisplay = $pdo->query("SELECT * FROM game;");
+$stmtDisplay = $pdo->query("SELECT * FROM game WHERE id_users = $userId;");
 $results = $stmtDisplay->fetchAll();
 ?>
 

@@ -30,6 +30,7 @@ class UserLogin
 
         if ($userFound && password_verify($pass, $userFound['pass_users'])) {
             $_SESSION['isConnected'] = true;
+            $_SESSION ['user_id'] = $userFound['id_users'];
             redirect('index.php');
         } else {
             redirect('login.php?error=' . AuthentificationError::PASS_PSEUDO_INVALID);

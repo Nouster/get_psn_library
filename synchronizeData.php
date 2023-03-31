@@ -8,13 +8,14 @@ use Symfony\Component\Dotenv\Dotenv;
 use Tustin\PlayStation\Client;
 $session = new Session();
 $session->unknownUser();
+var_dump($_SESSION);
 
 
 $dotenv = new Dotenv();
 $dotenv->loadEnv(__DIR__ . '/.env');
 
 $client = new Client();
-$client->loginWithNpsso($_SERVER['PSN_TOKEN']);
+$client->loginWithNpsso('SmVzDcmHzi7BCf6eO3SJcl6nVZW2F79GBGHUwiuP1FR5IIc7dYJ6Fl1dVqgnKLO8');
 
 $refreshToken = $client->getRefreshToken()->getToken(); // Save this code somewhere (database, file, cache) and use this for future logins
 
@@ -22,20 +23,17 @@ $refreshToken = $client->getRefreshToken()->getToken(); // Save this code somewh
 $me = $client->users()->me();
 
 
-
+var_dump($me);
 
 $stmt = $pdo->prepare("INSERT INTO game VALUES (?,?,?,?,?,?,?,?);");
-$stmtCheckDuplicate = $pdo->prepare("SELECT name_game FROM game WHERE name_game = ?;");
-$stmtPlatform = $pdo->prepare("INSERT INTO platform VALUES (?,?)");
-$stmtCategory = $pdo->prepare("INSERT INTO category VALUES (?,?)");
-$stmtInsertCategory = $pdo->prepare("INSERT INTO category VALUES (?,?)");
+$stmtCheckDuplicate = $pdo->prepare("SELECT name_game FROM game WHERE name_game = ? AND id_users = ?;");
 
 
 
 foreach ($me->gameList() as $game) {
 
     $firstPlayed = new DateTime($game->firstPlayedDateTime());
-    $stmtCheckDuplicate->execute([$game->name()]);
+    $stmtCheckDuplicate->execute([$game->name(), $_SESSION['user_id']]);
     $results = $stmtCheckDuplicate->fetchColumn();
     if (!$results) {
         $stmt->execute([
@@ -46,7 +44,7 @@ foreach ($me->gameList() as $game) {
             null,
             $firstPlayed->format('Y-m-d'),
             $game->service(),
-            1  
+            intval($_SESSION['user_id'])
         ]);
     }
 }
