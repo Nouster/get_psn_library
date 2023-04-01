@@ -17,6 +17,7 @@ $dotenv->loadEnv(__DIR__ . '/.env');
 $client = new Client();
 $client->loginWithNpsso('SmVzDcmHzi7BCf6eO3SJcl6nVZW2F79GBGHUwiuP1FR5IIc7dYJ6Fl1dVqgnKLO8');
 
+
 $refreshToken = $client->getRefreshToken()->getToken(); // Save this code somewhere (database, file, cache) and use this for future logins
 
 // To get my psn profil 

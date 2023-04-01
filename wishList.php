@@ -21,12 +21,8 @@ $stmt->execute();
                 <img class="w-100" src="<?php echo $element['picture_wishlist']; ?>">
                 <span>Expected release date : <?php echo date('d-m-Y', strtotime($element['date_wishlist'])) ?></span>
                 <p class="bg-dark text-light p-3 rounded-bottom-3"><?php echo excerpt($element['description_wishlist'], 300) ?></p>
-                <form action="delete_process.php" method="POST">
-                    <input type="hidden" name="delete" value="<?php echo $element['id_wishlist']; ?>">
-                    <button class="btn btn-dark rounded-3 col-12" type="submit">Delete</button>
-                </form>
+                <a href="delete_process.php?id=<?php echo $element['id_wishlist'] ?>"><button class="btn btn-dark rounded-3 col-12">Delete</button></a>
             </div>
         <?php } ?>
     </div>
 </div>
-
