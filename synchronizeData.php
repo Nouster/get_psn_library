@@ -8,7 +8,7 @@ use Symfony\Component\Dotenv\Dotenv;
 use Tustin\PlayStation\Client;
 $session = new Session();
 $session->unknownUser();
-var_dump($_SESSION);
+
 
 
 $dotenv = new Dotenv();
@@ -22,9 +22,6 @@ $refreshToken = $client->getRefreshToken()->getToken(); // Save this code somewh
 
 // To get my psn profil 
 $me = $client->users()->me();
-
-
-var_dump($me);
 
 $stmt = $pdo->prepare("INSERT INTO game VALUES (?,?,?,?,?,?,?,?);");
 $stmtCheckDuplicate = $pdo->prepare("SELECT name_game FROM game WHERE name_game = ? AND id_users = ?;");
