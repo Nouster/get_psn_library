@@ -10,15 +10,17 @@ $session = new Session();
 
 $pseudo = $_POST['pseudo'];
 $pass = $_POST['pass'];
+$token = $_POST['token_users'];
 
 $hashedPass = password_hash($pass, PASSWORD_DEFAULT);
 
-$stmt = $pdo->prepare('INSERT INTO users(pseudo_users, pass_users) VALUES (:pseudo, :pass)');
+$stmt = $pdo->prepare('INSERT INTO users(pseudo_users, pass_users, token_users) VALUES (:pseudo, :pass, :token)');
 
 try {
     $result = $stmt->execute([
         ':pseudo' => $pseudo,
-        ':pass' => $hashedPass
+        ':pass' => $hashedPass,
+        ':token' => $token
     ]);
     redirect('index.php');
 } catch (Exception $e) {

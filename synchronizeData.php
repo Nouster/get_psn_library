@@ -9,13 +9,19 @@ use Tustin\PlayStation\Client;
 $session = new Session();
 $session->unknownUser();
 
-
+$userId = $_SESSION['user_id'];
 
 $dotenv = new Dotenv();
 $dotenv->loadEnv(__DIR__ . '/.env');
 
 $client = new Client();
-$client->loginWithNpsso('SmVzDcmHzi7BCf6eO3SJcl6nVZW2F79GBGHUwiuP1FR5IIc7dYJ6Fl1dVqgnKLO8');
+$stmtTokenUser = $pdo->prepare("SELECT token_users FROM users WHERE id_users = ?");
+$stmtTokenUser->execute([$userId]);
+$tokenUser = $stmtTokenUser->fetchColumn();
+var_dump($tokenUser);
+
+$client->loginWithNpsso($tokenUser);
+
 
 
 $refreshToken = $client->getRefreshToken()->getToken(); // Save this code somewhere (database, file, cache) and use this for future logins

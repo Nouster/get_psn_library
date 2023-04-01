@@ -9,9 +9,9 @@ require_once 'layout/header.php';
         <form class="d-flex flex-column align-items-center justify-content-center gap-3" action="signUp_process.php" method="post">
             <input class="rounded-1 col-md-4 form-control" type="text" name="pseudo" placeholder="Your pseudo">
             <input class="rounded-1 col-md-4 form-control" type="password" name="pass" placeholder="Your password">
+            <input class="rounded-1 col-md-4 form-control" type="text" name="token_users" placeholder="Your token">
             <button type="submit" class="btn btn-dark px-4">Subscription</button>
             <a href="login.php"><button type="button" class="btn btn-dark px-5">Login</button></a>
-            <!-- <a href="login.php">Login</a> -->
         </form>
     </div>
 </section>
