@@ -6,6 +6,7 @@ require_once 'functions/functions.php';
 use App\Session;
 use Symfony\Component\Dotenv\Dotenv;
 use Tustin\PlayStation\Client;
+
 $session = new Session();
 $session->unknownUser();
 
@@ -29,7 +30,7 @@ $refreshToken = $client->getRefreshToken()->getToken(); // Save this code somewh
 // To get my psn profil 
 $me = $client->users()->me();
 
-$stmt = $pdo->prepare("INSERT INTO game VALUES (?,?,?,?,?,?,?,?,?);");
+$stmt = $pdo->prepare("INSERT INTO game VALUES (?,?,?,?,?,?,?,?,?,?);");
 $stmtCheckDuplicate = $pdo->prepare("SELECT name_game FROM game WHERE name_game = ? AND id_users = ?;");
 
 
@@ -37,6 +38,7 @@ $stmtCheckDuplicate = $pdo->prepare("SELECT name_game FROM game WHERE name_game 
 foreach ($me->gameList() as $game) {
 
     $firstPlayed = new DateTime($game->firstPlayedDateTime());
+    $lastPlayed = new DateTime($game->lastPlayedDateTime());
     $stmtCheckDuplicate->execute([$game->name(), $_SESSION['user_id']]);
     $results = $stmtCheckDuplicate->fetchColumn();
     if (!$results) {
@@ -47,6 +49,7 @@ foreach ($me->gameList() as $game) {
             null,
             null,
             $firstPlayed->format('Y-m-d'),
+            $lastPlayed->format('Y-m-d'),
             $game->playCount(),
             $game->service(),
             intval($_SESSION['user_id'])
@@ -54,7 +57,7 @@ foreach ($me->gameList() as $game) {
     }
 }
 
-redirect('index.php');
+// redirect('index.php');
 
 
 
@@ -71,17 +74,19 @@ $stmtplatform = $pdo->prepare("INSERT INTO platform VALUES (?,?);");
 
 
 
-foreach($me->gameList() as $game){
-    // $methods = get_class_methods($game);
-    // var_dump($methods);
-    $name = $game->name();
-    $time = $game->playCount();
-    var_dump($name,$time);
-//   $lastPlayedDateTime = $game->lastPlayedDateTime();
-//   var_dump($name,$lastPlayedDateTime);
+// foreach($me->gameList() as $game){
+//     // $methods = get_class_methods($game);
+//     // var_dump($methods);
+//     $name = $game->name();
+//     // $time = $game->playCount();
+//     // var_dump($name,$time);
+//     $lastPlayed = new DateTime($game->lastPlayedDateTime());
+//    $lastPlayedFormat = $lastPlayed->format('d-m-Y');
+  
+//   var_dump($name,$lastPlayedFormat);
 // $category = $game->category();
 // var_dump($name,$category);
-}
+// }
 
 
 // $methods = get_class_methods($me);
