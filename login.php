@@ -7,7 +7,7 @@ require_once 'functions/functions.php';
 ?>
 <h2 class="text-center my-5">Login</h2>
 <hr class="w-50 mx-auto">
-<section class="container my-5 border p-5 rounded-3 login">
+<section class="container my-5 border p-5 pb-0 px-0 rounded-3 login">
     <?php
     displayError();
     ?>
@@ -16,9 +16,12 @@ require_once 'functions/functions.php';
             <input class="col-md-5 rounded-3 form-control" type="text" name="pseudo" placeholder="Pseudo" >
             <input class="col-md-5 rounded-3 form-control" type="password" name="pass" placeholder="Password" >
             <button class="btn btn-dark px-5" type="submit">Login</button>
-            <a href="signUp.php"><button type="button" class="btn btn-dark px-5">SignUp</button></a>
         </form>
     </div>
+    <div class="d-flex justify-content-end">
+        <a href="signUp.php"><button type="button" class="btn btn-dark px-5">SignUp</button></a>
+    </div>
+
 </section>
 
 

@@ -34,23 +34,58 @@ $stmtCheckDuplicate = $pdo->prepare("SELECT name_game FROM game WHERE name_game 
 
 
 
-foreach ($me->gameList() as $game) {
+// foreach ($me->gameList() as $game) {
 
-    $firstPlayed = new DateTime($game->firstPlayedDateTime());
-    $stmtCheckDuplicate->execute([$game->name(), $_SESSION['user_id']]);
-    $results = $stmtCheckDuplicate->fetchColumn();
-    if (!$results) {
-        $stmt->execute([
-            null,
-            $game->name(),
-            $game->imageUrl(),
-            null,
-            null,
-            $firstPlayed->format('Y-m-d'),
-            $game->service(),
-            intval($_SESSION['user_id'])
-        ]);
-    }
+//     $firstPlayed = new DateTime($game->firstPlayedDateTime());
+//     $stmtCheckDuplicate->execute([$game->name(), $_SESSION['user_id']]);
+//     $results = $stmtCheckDuplicate->fetchColumn();
+//     if (!$results) {
+//         $stmt->execute([
+//             null,
+//             $game->name(),
+//             $game->imageUrl(),
+//             null,
+//             null,
+//             $firstPlayed->format('Y-m-d'),
+//             $game->service(),
+//             intval($_SESSION['user_id'])
+//         ]);
+//     }
+// }
+
+// redirect('index.php');
+
+
+
+
+
+$stmtplatform = $pdo->prepare("INSERT INTO platform VALUES (?,?);");
+
+foreach($me->gameList() as $game){
+    $stmtplatform->execute([
+        null,
+        $game->category()
+    ]);
 }
 
-redirect('index.php');
+
+
+foreach($me->gameList() as $game){
+    // $methods = get_class_methods($game);
+    // var_dump($methods);
+    $name = $game->name();
+//     $time = $game->playCount();
+//     var_dump($name,$time);
+//   $lastPlayedDateTime = $game->lastPlayedDateTime();
+//   var_dump($name,$lastPlayedDateTime);
+// $category = $game->category();
+// var_dump($name,$category);
+}
+
+
+// $methods = get_class_methods($me);
+
+// echo "Les méthodes disponibles pour l'objet sont :<br>";
+// foreach ($methods as $method) {
+//   echo $method . "<br>";
+// }
