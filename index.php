@@ -15,6 +15,9 @@ $results = $stmtDisplay->fetchAll();
 
 <h1 id="app" class="col-md-12 text-center text-black display-5 py-5"></h1>
 
+
+
+
 <section class="container">
     <form class="row justify-content-center gap-3 my-5" action="results.php" method="GET">
         <input class="w-50 rounded-3 search form-control" placeholder="🔍 Search" type="text" name="q" value="<?php echo $_GET['q'] ?? ''; ?>">

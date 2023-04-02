@@ -55,9 +55,11 @@ foreach ($me->gameList() as $game) {
             intval($_SESSION['user_id'])
         ]);
     }
-}
+};
 
-// redirect('index.php');
+
+$previous = $_SERVER['HTTP_REFERER'];
+redirect($previous);
 
 
 
@@ -73,25 +75,20 @@ $stmtplatform = $pdo->prepare("INSERT INTO platform VALUES (?,?);");
 // }
 
 
+// $game = $me->gameList()->getUser()->friends();
+// $methods = get_class_methods($game);
+// var_dump($game);
+// var_dump($methods);
 
-// foreach($me->gameList() as $game){
-//     // $methods = get_class_methods($game);
-//     // var_dump($methods);
-//     $name = $game->name();
-//     // $time = $game->playCount();
-//     // var_dump($name,$time);
-//     $lastPlayed = new DateTime($game->lastPlayedDateTime());
-//    $lastPlayedFormat = $lastPlayed->format('d-m-Y');
-  
-//   var_dump($name,$lastPlayedFormat);
-// $category = $game->category();
-// var_dump($name,$category);
+
+
+
+// $titles = $me->trophyTitles(); // Get every trophy title
+// foreach ($titles as $title) {
+    // $title->name();
+//     $methods = get_class_methods($me);
+//     var_dump($me);
+
 // }
 
 
-// $methods = get_class_methods($me);
-
-// echo "Les méthodes disponibles pour l'objet sont :<br>";
-// foreach ($methods as $method) {
-//   echo $method . "<br>";
-// }

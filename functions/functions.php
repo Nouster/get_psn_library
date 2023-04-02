@@ -40,7 +40,7 @@ function displayGameStatus(array $game)
             echo 'This game has been purchased';
             break;
         case str_contains($gettingGame, 'ps_plus'):
-            echo 'I got this game thanks to my PS+ subscription';
+            echo 'You got this game thanks to my PS+ subscription';
             break;
         default:
             echo 'Free application';

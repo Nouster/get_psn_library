@@ -13,35 +13,36 @@ pictures.forEach((picture) => {
 	};
 });
 
+const createTypewriter = (element, text) => {
+	const customNodeCreator = function (character) {
+		return document.createTextNode(character);
+	};
 
+	const typewriter = new Typewriter(element, {
+		loop: true,
+		delay: 75,
+		onCreateTextNode: customNodeCreator,
+	});
 
-let app = document.getElementById("app");
+	typewriter.typeString(text).pauseFor(100).start();
 
-let customNodeCreator = function (character) {
-	return document.createTextNode(character);
+	typewriter
+		.typeString(" with")
+		.pauseFor(2000)
+		.deleteAll()
+		.typeString(
+			'the <span class = "bg-dark px-3 py-1 text-white rounded">power</span> of gaming'
+		)
+		.pauseFor(2000)
+		.deleteChars(7)
+		.start();
 };
 
-let typewriter = new Typewriter(app, {
-	loop: true,
-	delay: 75,
-	onCreateTextNode: customNodeCreator,
-});
+const app1 = document.getElementById("app");
 
-typewriter
-	.typeString(
-		'Level up your <span class= "bg-dark px-3 py-1 text-white rounded">Skills</span>'
-	)
-	.pauseFor(100)
-	.start();
 
-typewriter
-	.typeString(" with")
-	.pauseFor(2000)
-	.deleteAll()
-	.typeString(
-		'the <span class = "bg-dark px-3 py-1 text-white rounded">power</span> of gaming'
-	)
-	.pauseFor(2000)
-	.deleteChars(7)
-	// .typeString('<strong>altered!</strong>')
-	.start();
+createTypewriter(
+	app1,
+	'Level up your <span class= "bg-dark px-3 py-1 text-white rounded">Skills</span>'
+);
+

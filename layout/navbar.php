@@ -27,36 +27,39 @@ $session = new Session;
     </button>
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-4">
-        <li class="nav-item navButton rounded-3">
-          <a class="nav-link active px-3 py-2" aria-current="page" href="index.php">Home</a>
+        <li class="nav-item navButton rounded-5 mainLink">
+          <a class="nav-link px-3 py-2 " aria-current="page" href="index.php">Home</a>
         </li>
-        <li class="nav-item navButton rounded-3">
-          <a class="nav-link px-3 py-2" href="wishList.php">Wish List</a>
+        <li class="nav-item navButton rounded-5 mainLink">
+          <a class="nav-link px-3 py-2 " href="wishList.php">Wish List</a>
+        </li>
+        <li class="nav-item navButton rounded-5 mainLink">
+          <a class="nav-link px-3 py-2 " href="lastGame.php">Last games</a>
         </li>
       </ul>
       <ul class="d-flex justify-content-end m-0 list-unstyled gap-3">
         <li class="nav-item">
           <?php if (!empty($_SESSION)) {
-            echo '<a href="wishListForm.php"><button type="button" class="btn btn-dark">Add new wish</button></a>';
+            echo '<a href="wishListForm.php"><button type="button" class="btn btn-dark rounded-5">Add new wish</button></a>';
           } ?>
+        </li>
+        <li>
+          <?php
+          if (!empty($_SESSION)) { ?>
+
+            <a class="nav-link text-bg-dark px-3 py-2 rounded-5" href="../synchronizeData.php">Synchronize</a>
+
+          <?php } ?>
         </li>
         <li class="nav-item">
           <?php
-          echo '<a class="nav-link text-bg-dark px-3 py-2 rounded-3" ';
+          echo '<a class="nav-link text-bg-dark px-5 py-2 rounded-5" ';
           if (!empty($_SESSION)) {
             echo "href='../logout.php'>Logout</a>";
           } else {
             echo "href='../login.php'>Login</a>";
           }
           ?>
-        </li>
-        <li>
-          <?php
-          if (!empty($_SESSION)) { ?>
-
-            <a class="nav-link text-bg-dark px-3 py-2 rounded-3" href="../synchronizeData.php">Synchronize</a>
-
-          <?php } ?>
         </li>
       </ul>
     </div>
