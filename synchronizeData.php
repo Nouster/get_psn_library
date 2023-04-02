@@ -29,31 +29,32 @@ $refreshToken = $client->getRefreshToken()->getToken(); // Save this code somewh
 // To get my psn profil 
 $me = $client->users()->me();
 
-$stmt = $pdo->prepare("INSERT INTO game VALUES (?,?,?,?,?,?,?,?);");
+$stmt = $pdo->prepare("INSERT INTO game VALUES (?,?,?,?,?,?,?,?,?);");
 $stmtCheckDuplicate = $pdo->prepare("SELECT name_game FROM game WHERE name_game = ? AND id_users = ?;");
 
 
 
-// foreach ($me->gameList() as $game) {
+foreach ($me->gameList() as $game) {
 
-//     $firstPlayed = new DateTime($game->firstPlayedDateTime());
-//     $stmtCheckDuplicate->execute([$game->name(), $_SESSION['user_id']]);
-//     $results = $stmtCheckDuplicate->fetchColumn();
-//     if (!$results) {
-//         $stmt->execute([
-//             null,
-//             $game->name(),
-//             $game->imageUrl(),
-//             null,
-//             null,
-//             $firstPlayed->format('Y-m-d'),
-//             $game->service(),
-//             intval($_SESSION['user_id'])
-//         ]);
-//     }
-// }
+    $firstPlayed = new DateTime($game->firstPlayedDateTime());
+    $stmtCheckDuplicate->execute([$game->name(), $_SESSION['user_id']]);
+    $results = $stmtCheckDuplicate->fetchColumn();
+    if (!$results) {
+        $stmt->execute([
+            null,
+            $game->name(),
+            $game->imageUrl(),
+            null,
+            null,
+            $firstPlayed->format('Y-m-d'),
+            $game->playCount(),
+            $game->service(),
+            intval($_SESSION['user_id'])
+        ]);
+    }
+}
 
-// redirect('index.php');
+redirect('index.php');
 
 
 
@@ -61,12 +62,12 @@ $stmtCheckDuplicate = $pdo->prepare("SELECT name_game FROM game WHERE name_game 
 
 $stmtplatform = $pdo->prepare("INSERT INTO platform VALUES (?,?);");
 
-foreach($me->gameList() as $game){
-    $stmtplatform->execute([
-        null,
-        $game->category()
-    ]);
-}
+// foreach($me->gameList() as $game){
+//     $stmtplatform->execute([
+//         null,
+//         $game->category()
+//     ]);
+// }
 
 
 
@@ -74,8 +75,8 @@ foreach($me->gameList() as $game){
     // $methods = get_class_methods($game);
     // var_dump($methods);
     $name = $game->name();
-//     $time = $game->playCount();
-//     var_dump($name,$time);
+    $time = $game->playCount();
+    var_dump($name,$time);
 //   $lastPlayedDateTime = $game->lastPlayedDateTime();
 //   var_dump($name,$lastPlayedDateTime);
 // $category = $game->category();

@@ -14,8 +14,7 @@ $results = $stmt->execute([
 $game = $stmt->fetch();
 
 
-// var_dump($_COOKIE);
-// var_dump($_SERVER);
+
 ?>
 
 
@@ -34,6 +33,16 @@ $game = $stmt->fetch();
             <img class="img-fluid" src="<?php echo $game['picture_game'] ?>" alt="">
             <div class="bg-dark text-light py-3 text-center">Started this game at : <?php echo date('d-m-Y', strtotime($game['start_date_game'])); ?></div>
             <div class="border bg-dark text-light rounded-3 py-2 text-center mt-3"><?php displayGameStatus($game) ?></div>
+        </div>
+    </div>
+</section>
+
+<section class="container-fluid mt-5 banner p-5">
+    <div class="row justify-content-center">
+        <div class="col-md-3 border d-flex justify-content-center align-items-center item rounded-3">
+            <p class="m-0 py-5"><svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="40" fill="currentColor" class="bi bi-clock-fill" viewBox="0 0 16 16">
+                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z" />
+                </svg>You spent <?php echo $game['playcount_game'] ?> hours in this game </p>
         </div>
     </div>
 </section>
