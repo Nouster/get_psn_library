@@ -1,6 +1,6 @@
 <?php
 
-
+use App\InvalidToken;
 
 require_once 'layout/header.php'; 
 require_once 'db/pdo.php';
@@ -16,7 +16,12 @@ $results = $stmtDisplay->fetchAll();
 <h1 id="app" class="col-md-12 text-center text-black display-5 py-5"></h1>
 
 
-
+<?php 
+    if($_GET['error']) { ?>
+        <div class="alert alert-danger text-center col-md-3 mx-auto p-3">
+            <p class="m-0"><?php echo InvalidToken::getErrorMessage(intval($_GET['error']))?></p>
+        </div>
+    <?php } ?>
 
 <section class="container">
     <form class="row justify-content-center gap-3 my-5" action="results.php" method="GET">

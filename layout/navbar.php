@@ -1,10 +1,10 @@
 <?php
 require_once 'vendor/autoload.php';
+require_once 'db/pdo.php';
 
 use App\Session;
 
 $session = new Session;
-
 ?>
 <div class="container-fluid bg-dark d-flex justify-content-end p-3">
   <span class="text-light fw-bold">SONY</span>
@@ -25,18 +25,34 @@ $session = new Session;
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarText">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-4">
-        <li class="nav-item navButton rounded-5 mainLink">
-          <a class="nav-link px-3 py-2 " aria-current="page" href="index.php">Home</a>
-        </li>
-        <li class="nav-item navButton rounded-5 mainLink">
-          <a class="nav-link px-3 py-2 " href="wishList.php">Wish List</a>
-        </li>
-        <li class="nav-item navButton rounded-5 mainLink">
-          <a class="nav-link px-3 py-2 " href="lastGame.php">Last games</a>
-        </li>
+    <div class="collapse navbar-collapse justify-content-between" id="navbarText">
+      <ul class="d-flex text-decoration-none list-unstyled  mb-2 mb-lg-0 gap-4 justify-content-between align-items-center">
+        <div class="d-flex gap-3">
+          <li class="nav-item navButton rounded-5 mainLink">
+            <a class="nav-link px-3 py-2 " aria-current="page" href="index.php">Home</a>
+          </li>
+          <li class="nav-item navButton rounded-5 mainLink">
+            <a class="nav-link px-3 py-2 " href="wishList.php">Wish List</a>
+          </li>
+          <li class="nav-item navButton rounded-5 mainLink">
+            <a class="nav-link px-3 py-2 " href="lastGame.php">Last games</a>
+          </li>
+        </div>
       </ul>
+
+      <div>
+        <?php if (!empty($_SESSION)) {
+          $query = "SELECT * FROM users WHERE id_users = $_SESSION[user_id]";
+          $stmt = $pdo->prepare($query);
+          $userFound = $stmt->execute();
+          $results = $stmt->fetch(); ?>
+          <li class="list-unstyled d-flex align-items-end gap-3">
+            <img width="40px" src="../assets/img/psLogo.png" alt="Logo playstation">
+            <span class="">- Welcome <span class="fw-bold text-capitalize"><?php echo $results['pseudo_users'] ?> -</span></span>
+          </li>
+        <?php } ?>
+      </div>
+
       <ul class="d-flex justify-content-end m-0 list-unstyled gap-3">
         <li class="nav-item">
           <?php if (!empty($_SESSION)) {

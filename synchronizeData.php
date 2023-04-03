@@ -3,6 +3,7 @@ require_once 'vendor/autoload.php';
 require_once 'db/pdo.php';
 require_once 'functions/functions.php';
 
+use App\InvalidToken;
 use App\Session;
 use Symfony\Component\Dotenv\Dotenv;
 use Tustin\PlayStation\Client;
@@ -16,10 +17,18 @@ $dotenv = new Dotenv();
 $dotenv->loadEnv(__DIR__ . '/.env');
 
 $client = new Client();
-$stmtTokenUser = $pdo->prepare("SELECT token_users FROM users WHERE id_users = ?");
-$stmtTokenUser->execute([$userId]);
-$tokenUser = $stmtTokenUser->fetchColumn();
-var_dump($tokenUser);
+
+try {
+    $stmtTokenUser = $pdo->prepare("SELECT token_users FROM users WHERE id_users = ?");
+    $stmtTokenUser->execute([$userId]);
+    $tokenUser = $stmtTokenUser->fetchColumn();
+} catch (PDOException $e) {
+    redirect('index.php?error=' . $e->getCode());
+}
+
+if ($tokenUser === null) {
+    redirect('index.php?error=' . InvalidToken::TOKEN_NOT_PROVIDED);
+}
 
 $client->loginWithNpsso($tokenUser);
 
@@ -90,5 +99,3 @@ $stmtplatform = $pdo->prepare("INSERT INTO platform VALUES (?,?);");
 //     var_dump($me);
 
 // }
-
-

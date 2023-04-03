@@ -20,7 +20,8 @@ try {
     $result = $stmt->execute([
         ':pseudo' => $pseudo,
         ':pass' => $hashedPass,
-        ':token' => $token
+        ':token' => empty($token) ? null : $token,
+        
     ]);
     redirect('index.php');
 } catch (Exception $e) {

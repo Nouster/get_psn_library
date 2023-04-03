@@ -3,9 +3,8 @@
 require_once 'layout/header.php';
 require_once 'db/pdo.php';
 require_once 'functions/functions.php';
-
-$userId = $_SESSION['user_id'];
 $session->unknownUser();
+$userId = $_SESSION['user_id'];
 $stmtLastGame = $pdo->prepare("SELECT * FROM game WHERE id_users = $userId AND last_played_game IS NOT NULL AND getting_game LIKE '%ps_plus%' ORDER BY last_played_game DESC LIMIT 10");
 $stmtLastGame->execute();
 $resultsLastGame = $stmtLastGame->fetchAll();
