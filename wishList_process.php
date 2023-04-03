@@ -1,12 +1,22 @@
 <?php
+
 require_once 'db/pdo.php';
 require_once 'functions/functions.php';
+require_once 'vendor/autoload.php';
+
+use App\Session;
+$session = new Session();
+$session->unknownUser();
+
 
 
 $title = $_POST['title'];
 $release = $_POST['release'];
 $description = $_POST['description'];
 $picture = $_FILES['picture'];
+
+$idUser = $_SESSION['user_id'];
+var_dump($_SESSION);
 
 
 if (isset($picture)) {
@@ -21,13 +31,14 @@ if (isset($picture)) {
     }
 }
 
-$stmt = $pdo->prepare("INSERT INTO wishlist (title_wishlist, date_wishlist, description_wishlist, picture_wishlist) VALUES (?,?,?,?)");
+$stmt = $pdo->prepare("INSERT INTO wishlist (title_wishlist, date_wishlist, description_wishlist, picture_wishlist,id_users) VALUES (?,?,?,?,?)");
 
 $result = $stmt->execute([
     $title,
     $release,
     $description,
-    $destination
+    $destination,
+    $idUser
 ]);
 
 

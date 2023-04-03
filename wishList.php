@@ -3,11 +3,14 @@ require_once 'layout/header.php';
 require_once 'db/pdo.php';
 require_once 'functions/functions.php';
 $session->unknownUser();
+$idUser = $_SESSION['user_id'];
 
 ?>
 <?php
-$stmt = $pdo->prepare("SELECT * FROM wishlist");
-$stmt->execute();
+$stmt = $pdo->prepare("SELECT * FROM wishlist WHERE id_users =?");
+$stmt->execute([
+    $idUser
+]);
 
 
 ?>
