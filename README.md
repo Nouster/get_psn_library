@@ -60,7 +60,8 @@
 
 ![LMD_draw](assets/img/pdm_v2.png)
 
-
+:warning: The tables shown in this diagram are not all present. I was unable to retrieve all the informations from the API for now.
+Send me a DM if you know how can I get trophy titles, descriptions for a game or a genre.
 
 
 
@@ -72,6 +73,6 @@ I used a package from packagist.org to retrieve the entire library present on th
 - Make sure that you have PHP and Composer installed on your machine. If not, you can install them by following the instructions on the PHP and Composer websites.
 - Run the "composer install" command to install all project dependencies.
 
-
+## Roadmap since the beginning
 
 
