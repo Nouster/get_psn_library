@@ -6,8 +6,8 @@
 * **A user can have at most one library**
 * **A library can have at least 0 games and at most several games**
 * A game has an identifier, a name, an image, a description, a release date, a started date for games, a last played game, a number of hours played and a way to get it.
-* A user has a wishlist
-* **A wishlist has at least O game whished and at most several desired games**
+* **A user has only one wishlist**
+* **A wishlist has at least 0 game whished and at most several desired games**
 * A game wished has an identifier, a title, a date expected, a description and a picture
 
 ### Data dictionary
@@ -28,6 +28,9 @@
 | password_users     | Password to login         | AN       | 50         | *Hashed*      |
 | token_users        | Token provided by PSN     | AN       | 50         | *From Sony*   |
 | id_wishlist        | identifier                | N        | 10         | *Unsigned*    |
+| title_wishlist     | name for a wished game    | AN       | 50         |               |
+| date_wishlist      | expected date             | DATE     |            | *Fr format*   |
+| description_wishlist| description about game.  | AN.      | 200        |               |
 
 
 
