@@ -1,5 +1,11 @@
 # get_psn_library
 
+:warning: The database schema was modified throughout the project to adapt to what I could use from the API and the implementations I wanted to put in place to make the application useful for other users. New table to implements users (sign up form) and to save their token, new table to store games that do not yet have a release date. Ability to create a CRUD for user's desired games...
+
+
+
+
+
 ## Data Conceptual Model
 ### Management rules
 * A user has an identifier, unique pseudo, a password, and a token
