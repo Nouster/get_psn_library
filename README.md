@@ -54,7 +54,7 @@
 ## Logical data model
 
 
-![LMD_draw](assets/img/ldm.png)
+![LMD_draw](assets/img/ldm_v2.png)
 
 ## Physical data model
 
