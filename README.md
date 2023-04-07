@@ -75,4 +75,4 @@ I used a package from packagist.org to retrieve the entire library present on th
 
 ## Roadmap since the beginning
 
-
+- I started by loading all the game data sent by the API on the homepage, then, in order to optimize the page display, I put this request in a processing file accessible through a button.
