@@ -64,6 +64,13 @@
 
 
 
+## PlayStation API
+
+I used a package from packagist.org to retrieve the entire library present on the PSN for each user.
+[More informations about this package](https://packagist.org/packages/tustin/psn-php)
+
+- Make sure that you have PHP and Composer installed on your machine. If not, you can install them by following the instructions on the PHP and Composer websites.
+- Run the "composer install" command to install all project dependencies.
 
 
 
