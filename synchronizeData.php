@@ -24,6 +24,8 @@ try {
     $tokenUser = $stmtTokenUser->fetchColumn();
 } catch (PDOException $e) {
     redirect('index.php?error=' . $e->getCode());
+} catch (Exception $e ) {
+    redirect('index.php?error='. $e->getCode());
 }
 
 if ($tokenUser === null) {

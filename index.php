@@ -17,7 +17,7 @@ $results = $stmtDisplay->fetchAll();
 
 
 <?php 
-    if($_GET['error']) { ?>
+    if(array_key_exists('error',$_GET)) { ?>
         <div class="alert alert-danger text-center col-md-3 mx-auto p-3">
             <p class="m-0"><?php echo InvalidToken::getErrorMessage(intval($_GET['error']))?></p>
         </div>
