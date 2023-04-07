@@ -1,6 +1,6 @@
 # get_psn_library
 
-:warning: The database schema was modified throughout the project to adapt to what I could use from the API and the implementations I wanted to put in place to make the application useful for other users. New table to implements users (sign up form) and to save their token, new table to store games that do not yet have a release date. Ability to create a CRUD for user's desired games...
+:warning: The database schema was modified throughout the project to adapt to what I could use from the API and the implementations I wanted to put in place to make the application useful for other users. New table to implements users (sign up form) and to save their token, new table to store games that do not yet have a release date. Ability to create a  partial CRUD for user's desired games (maybe an update incoming for a total crud)...
 
 
 
@@ -9,12 +9,10 @@
 ## Data Conceptual Model
 ### Management rules
 * A user has an identifier, unique pseudo, a password, and a token
-* **A user can have at most one library**
-* **A library can have at least 0 games and at most several games**
+* **A user has at least 0 game and at most several games**
 * A game has an identifier, a name, an image, a description, a release date, a started date for games, a last played game, a number of hours played and a way to get it.
-* **A user has only one wishlist**
-* **A wishlist has at least 0 game whished and at most several desired games**
-* A game wished has an identifier, a title, a date expected, a description and a picture
+* **A user has at least 0 wished game and at most several wished games**
+* A wished game has an identifier, a title, a date expected, a description and a picture
 
 ### Data dictionary
 
@@ -50,7 +48,7 @@
 
 ### Final DCM
 
-![DCM_draw](assets/img/dcm.png)
+![DCM_draw](assets/img/dcm_v2.png)
 
 
 ## Logical data model
