@@ -31,15 +31,16 @@
 | title_wishlist     | name for a wished game    | AN       | 50         |               |
 | date_wishlist      | expected date             | DATE     |            | *Fr format*   |
 | description_wishlist| description about game.  | AN.      | 200        |               |
+| picture_wishlist   | picture uploaded for a wish| AN      | 50         |               |
 
 
 
 
 ### Functional depedencies
 
-* <ins>id_game</ins> ? name_game, picture_game, description_game, release_game, start_date_game, getting_game
-* <ins>id_category</ins> ? name_category
-* <ins>id_platform</ins> ? name_platform
+* <ins>id_game</ins> ? name_game, picture_game, description_game, release_game, start_date_game, last_played_game, playcount_game, getting_game
+* <ins>id_users</ins> ? pseudo_users, password_users, token_users
+* <ins>id_wishlist</ins> ? title_wishlist, date_wishlist, description_wishlist, picture_wishlist
 
 ### Final DCM
 
