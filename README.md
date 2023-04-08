@@ -76,3 +76,9 @@ I used a package from packagist.org to retrieve the entire library present on th
 ## Roadmap since the beginning
 
 - I started by loading all the game data sent by the API on the homepage, then, in order to optimize the page display, I put this request in a processing file accessible through a button for the client.
+
+- In order to lighten the home page, I have created different functions that allow me to adapt the displayed content. For a comprehensive list, please refer to the functions.php file.
+
+- I displayed the information specific to each game in the gameInfo file, and in order for the user to be able to return to the previous page and continue their browsing, I used the HTTP_REFERER key in the $_SERVER superglobal.
+
+-
