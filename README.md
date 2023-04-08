@@ -81,4 +81,4 @@ I used a package from packagist.org to retrieve the entire library present on th
 
 - I displayed the information specific to each game in the gameInfo file, and in order for the user to be able to return to the previous page and continue their browsing, I used the HTTP_REFERER key in the $_SERVER superglobal.
 
--
+- I wanted to make my application more useful, so I decided to manage users using the UserLogin class and a Session class. I debated for a long time about whether to create a single class to handle both the session and the login, but their responsibilities were different. The UserLogin class is responsible for verifying user authentication information and redirecting the user to the appropriate page based on the verification result, while the Session class is responsible for managing the user session.
